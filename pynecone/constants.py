@@ -40,6 +40,7 @@ WEB_DIR = ".web"
 UTILS_DIR = "utils"
 # The name of the state file.
 STATE_PATH = "/".join([UTILS_DIR, "state"])
+PY_TRUTHY_PATH = "/".join([UTILS_DIR, "py_truthy"])
 # The name of the components file.
 COMPONENTS_PATH = "/".join([UTILS_DIR, "components"])
 # The directory where the app pages are compiled to.

@@ -24,6 +24,8 @@ def cond_state(request):
         pytest.param({"value_type": bool, "value": True}),
         pytest.param({"value_type": int, "value": 0}),
         pytest.param({"value_type": str, "value": "true"}),
+        pytest.param({"value_type": list, "value": []}),
+        pytest.param({"value_type": dict, "value": {}}),
     ],
     indirect=True,
 )
@@ -39,12 +41,17 @@ def test_validate_cond(cond_state: pc.Var):
         Text.create("cond is False"),
     )
 
+    # assert str(cond_component) == (
+    #     "<Fragment>{cond_state.value ? "
+    #     "<Fragment><Text>{`cond is True`}</Text></Fragment> : "
+    #     "<Fragment><Text>{`cond is False`}</Text></Fragment>}</Fragment>"
+    # )
+
     assert str(cond_component) == (
-        "<Fragment>{cond_state.value ? "
-        "<Fragment><Text>{`cond is True`}</Text></Fragment> : "
+        f"<Fragment>{{{'true' if cond_state.value else 'false'} ? "\
+        "<Fragment><Text>{`cond is True`}</Text></Fragment> : "\
         "<Fragment><Text>{`cond is False`}</Text></Fragment>}</Fragment>"
     )
-
 
 @pytest.mark.parametrize(
     "c1, c2",

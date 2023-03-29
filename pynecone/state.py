@@ -553,7 +553,9 @@ class State(Base, ABC):
                 events = await fn(**event.payload)
             else:
                 events = fn(**event.payload)
-        except Exception:
+        except Exception as e:
+            print("Error")
+            print(e)
             error = traceback.format_exc()
             print(error)
             events = utils.fix_events(

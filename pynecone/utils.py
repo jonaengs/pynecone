@@ -1145,7 +1145,7 @@ def format_cond(
         return f"{cond} ? {prop1} : {prop2}".replace("{", "").replace("}", "")
 
     # Format component conds.
-    return wrap(f"{cond} ? {true_value} : {false_value}", "{")
+    return wrap(f"py_truthy({cond}) ? {true_value} : {false_value}", "{")
 
 
 def get_event_handler_parts(handler: EventHandler) -> Tuple[str, str]:

@@ -371,7 +371,6 @@ class App(Base):
         # Compile the root document with base styles and fonts.
         compiler.compile_document_root(self.stylesheets)
 
-        # Compile the theme.
         compiler.compile_theme(self.style)
 
         # Compile the pages.
@@ -379,7 +378,6 @@ class App(Base):
         for route, component in self.pages.items():
             component.add_style(self.style)
             compiler.compile_page(route, component, self.state)
-
             # Add the custom components from the page to the set.
             custom_components |= component.get_custom_components()
 

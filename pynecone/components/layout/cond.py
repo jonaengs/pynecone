@@ -75,6 +75,7 @@ def cond(condition: Any, c1: Any, c2: Any = None):
 
     # Convert the condition to a Var.
     cond_var = Var.create(condition)
+
     assert cond_var is not None, "The condition must be set."
 
     # If the first component is a component, create a Cond component.

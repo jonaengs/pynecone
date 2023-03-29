@@ -111,6 +111,7 @@ def compile_state(state: Type[State]) -> str:
     )
     initial_state = utils.format_state(initial_state)
     synced_state = templates.format_state(
+        # state=state.get_name(), initial_state=json.dumps(initial_state, allow_nan=False)
         state=state.get_name(), initial_state=json.dumps(initial_state)
     )
     initial_result = {
@@ -120,6 +121,7 @@ def compile_state(state: Type[State]) -> str:
     }
     result = templates.format_state(
         state="result",
+        # initial_state=json.dumps(initial_result, allow_nan=False),
         initial_state=json.dumps(initial_result),
     )
     router = templates.ROUTER

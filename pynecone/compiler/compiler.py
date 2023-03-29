@@ -16,6 +16,7 @@ DEFAULT_IMPORTS: ImportDict = {
     "react": {"useEffect", "useRef", "useState"},
     "next/router": {"useRouter"},
     f"/{constants.STATE_PATH}": {"connect", "updateState", "uploadFiles", "E"},
+    f"/{constants.PY_TRUTHY_PATH}": {"py_truthy"},
     "": {"focus-visible/dist/focus-visible"},
     "@chakra-ui/react": {constants.USE_COLOR_MODE},
 }
